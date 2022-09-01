@@ -4,8 +4,12 @@ from flask import Blueprint, request
 
 bp = Blueprint("auth", __name__, url_prefix="/golden_gate")
 
-@bp.route("/", methods=["POST"])
+@bp.route("", methods=["GET", "POST"])
+@bp.route("/", methods=["GET", "POST"])
 def golden_gate():
+    if request.method == "GET":
+        return "golden gate reaction calculator"
+
     """
     JSON data:
     {
